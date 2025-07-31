@@ -1,44 +1,38 @@
-# SEWS Connect
+# 🏭 SEWS Connect - Manufacturing Communication Hub
 
-A comprehensive company communication and task management app built with Flutter for SEWS company.
+<div align="center">
+  <img src="https://img.shields.io/badge/Flutter-3.19%2B-blue.svg" alt="Flutter Version">
+  <img src="https://img.shields.io/badge/Platform-Android%20%7C%20iOS-green.svg" alt="Platform">
+  <img src="https://img.shields.io/badge/License-MIT-orange.svg" alt="License">
+</div>
 
-## Features
+SEWS Connect is a comprehensive communication and task management application designed specifically for SEWS manufacturing company. Built with Flutter, it provides real-time messaging, video calling, QR-based equipment management, and intelligent task assignment workflows.
 
-### 🔧 **Core Communication**
-- **Real-time Messaging**: Department-based chat rooms and direct messaging
-- **Voice & Video Calls**: High-quality calling with Agora integration
-- **Video Meetings**: Group video conferences with screen sharing
-- **Emergency Channels**: Priority communication for urgent situations
+## ✨ Key Features
 
-### 📊 **Smart Dashboard**
-- **Department-specific Views**: Customized dashboard based on user's department
-- **Real-time Notifications**: Targeted alerts for maintenance, IT, HR, and other departments
-- **Quick Actions**: One-tap access to common tasks
-- **Activity Overview**: Real-time company status and metrics
+### 🔄 Real-Time Communication
+- **Department-based messaging** with instant notifications
+- **WebRTC video/audio calling** with Android 11+ compatibility
+- **Emergency communication channels** for critical alerts
+- **Firebase Firestore integration** for seamless real-time updates
 
-### 📱 **QR/Barcode Scanner**
-- **Machine Identification**: Scan QR codes or barcodes on equipment
-- **First-Scan-Wins**: Task assignment to the first person who scans
-- **Equipment Database**: Comprehensive machine information and status
-- **Instant Task Claiming**: Claim maintenance tasks by scanning machine codes
+### � Workstation Management
+- **Excel import functionality** for bulk workstation data
+- **QR code generation** for equipment identification
+- **First-scan-wins task assignment** system
+- **Mobile scanner integration** for barcode/QR scanning
 
-### 📋 **Task Management**
-- **Smart Assignment**: Tasks automatically assigned to first scanner
-- **Progress Tracking**: Real-time task progress updates
-- **Priority System**: High, medium, and low priority task classification
-- **Department Integration**: Tasks filtered by department and role
+### 🎯 Smart Task Management
+- **Priority-based task assignment** with department filtering
+- **Real-time task status updates** across all devices
+- **Equipment-centric workflow design** for manufacturing environment
+- **Offline support** with local Hive storage
 
-### 🔔 **Advanced Notifications**
-- **Role-based Alerts**: Notifications targeted by department and position
-- **Priority Levels**: Emergency, high, medium, and low priority notifications
-- **Real-time Updates**: Instant notifications for equipment issues
-- **Acknowledgment System**: Track who has seen and acknowledged alerts
-
-### 🛠️ **Maintenance Workflow**
-- **Equipment Status Tracking**: Real-time machine status monitoring
-- **Maintenance Scheduling**: Automated task creation based on schedules
-- **Work Orders**: Digital work order management
-- **Completion Reporting**: Digital task completion with photos and notes
+### 🎨 Manufacturing-Focused UI
+- **Material Design 3** with SEWS branding
+- **Industrial-grade interface** suitable for factory environments
+- **Large touch targets** and high contrast for accessibility
+- **Role-based dashboard views** for different user types
 
 ## Technology Stack
 

@@ -45,6 +45,8 @@ app.*.map.json
 /android/app/debug
 /android/app/profile
 /android/app/release
+/android/.gradle/
+/android/local.properties
 
 # iOS/macOS
 **/ios/Pods/
@@ -64,6 +66,16 @@ GoogleService-Info.plist
 
 # Coverage
 coverage/
+
+# Flutter SDK (if local)
+flutter/
+flutter.zip
+
+# Large build files
+*.zip
+*.aar
+*.jar
+build/
 
 # Windows
 *.dll

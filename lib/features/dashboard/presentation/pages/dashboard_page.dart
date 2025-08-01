@@ -264,9 +264,25 @@ class _DashboardPageState extends State<DashboardPage> {
   }
 
   void _onItemTapped(int index) {
-    setState(() {
-      _selectedIndex = index;
-    });
+    switch (index) {
+      case 0:
+        setState(() {
+          _selectedIndex = index;
+        });
+        break;
+      case 1:
+        context.go('/chat');
+        break;
+      case 2:
+        context.go('/scanner');
+        break;
+      case 3:
+        context.go('/tasks');
+        break;
+      case 4:
+        context.go('/profile');
+        break;
+    }
   }
 
   Future<void> _refreshDashboard() async {

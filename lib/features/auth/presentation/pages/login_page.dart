@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import '../../../../core/services/firebase_service.dart';
 import '../../../../core/theme/app_theme.dart';
+import '../../../../services/auth_service.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
@@ -59,6 +60,20 @@ class _LoginPageState extends State<LoginPage> {
             _selectedRole,
           );
           
+          // Save login data for persistence
+          await AuthService.saveLoginData(
+            userData: {
+              'name': _usernameController.text.trim().isNotEmpty ? _usernameController.text.trim() : 'User',
+              'email': _emailController.text.trim(),
+              'department': _selectedDepartment,
+              'role': _selectedRole,
+              'employeeId': 'EMP${DateTime.now().millisecondsSinceEpoch}',
+              'phone': 'Not provided',
+              'joinDate': DateTime.now().toString().split(' ')[0],
+            },
+            authToken: userCredential.user?.uid,
+          );
+          
           if (mounted) {
             ScaffoldMessenger.of(context).showSnackBar(
               const SnackBar(
@@ -83,14 +98,33 @@ class _LoginPageState extends State<LoginPage> {
           _passwordController.text,
         );
         
-        if (userCredential != null && mounted) {
-          ScaffoldMessenger.of(context).showSnackBar(
-            const SnackBar(
-              content: Text('✅ Signed in successfully with REAL Firebase!'),
-              backgroundColor: Colors.green,
-            ),
+        if (userCredential != null) {
+          // Get user data from Firestore
+          final userData = await FirebaseService.getUserData(_emailController.text.trim());
+          
+          // Save login data for persistence
+          await AuthService.saveLoginData(
+            userData: userData ?? {
+              'name': 'User',
+              'email': _emailController.text.trim(),
+              'department': 'Unknown',
+              'role': 'employee',
+              'employeeId': 'EMP${DateTime.now().millisecondsSinceEpoch}',
+              'phone': 'Not provided',
+              'joinDate': DateTime.now().toString().split(' ')[0],
+            },
+            authToken: userCredential.user?.uid,
           );
-          context.go('/dashboard');
+          
+          if (mounted) {
+            ScaffoldMessenger.of(context).showSnackBar(
+              const SnackBar(
+                content: Text('✅ Signed in successfully with REAL Firebase!'),
+                backgroundColor: Colors.green,
+              ),
+            );
+            context.go('/dashboard');
+          }
         } else if (mounted) {
           ScaffoldMessenger.of(context).showSnackBar(
             SnackBar(
